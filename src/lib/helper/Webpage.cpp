@@ -56,7 +56,7 @@ initLibcurl (const char* libcurl_err_info_buff)
 
     // automatically set the Referer to redirect source
     checkErrLibcurl(curl_easy_setopt(p_curl, CURLOPT_AUTOREFERER, true), libcurl_err_info_buff);
-
+    checkErrLibcurl(curl_easy_setopt(p_curl, CURLOPT_NOSIGNAL, 1L), libcurl_err_info_buff);
     // Set low speed limit in bytes per second.
     // It contains the average transfer speed in bytes per second that the transfer should be below
     // during CURLOPT_LOW_SPEED_TIME seconds for libcurl to consider it to be too slow and abort.
