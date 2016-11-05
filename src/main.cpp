@@ -426,7 +426,7 @@ main (int argc, char* argv[])
     // <<<<<<<<<<<<<<<<<<
 
     // --concurrent-tasks
-    unsigned threads_total = 8; // the default number of threads
+    unsigned threads_total = 32; // the default number of threads
     cmdline_arguments_list = cmdline_options.getArgumentsList("--concurrent-tasks");
     if (!cmdline_arguments_list.empty()) {
         unsigned tmp = strtoul(cmdline_arguments_list[0].c_str(), nullptr, 0);
@@ -471,7 +471,7 @@ main (int argc, char* argv[])
     cout << RichTxt::bold_off << "\b\b\"; " << endl;
 
     // --proxy. prompt user to use proxy, because the caoliu bbs maybe block IP
-    vector<string> proxy_addrs_list = {"http://127.0.0.1:8087"}; // the default proxy is GoAgent
+    vector<string> proxy_addrs_list = {""}; // the default proxy is GoAgent
     cmdline_arguments_list = cmdline_options.getArgumentsList("--proxy");
     if (!cmdline_arguments_list.empty()) {
         proxy_addrs_list = cmdline_arguments_list;
