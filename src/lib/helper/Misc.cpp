@@ -111,7 +111,7 @@ makeRandomFilename (void)
                              + convNumToStr(rand());
 
 #ifdef CYGWIN
-    return("c:\\" + filename);
+    return("c:\\Downloads\\" + filename);
 #else
     return("/tmp/" + filename);
 #endif

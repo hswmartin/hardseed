@@ -1,10 +1,12 @@
 // last modified 
 
 #pragma once
-
+#include <sys/select.h>
+#include <sys/time.h>
+#include <curl/curl.h>
 #include <string>
 #include <vector>
-#include <curl/curl.h>
+
 
 using std::string;
 using std::vector;

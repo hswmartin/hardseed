@@ -257,7 +257,7 @@ main (int argc, char* argv[])
     // parse command line options
     // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
+    setlocale(LC_CTYPE, "zh_CN.UTF8");
     CmdlineOption cmdline_options((unsigned)argc, argv);
     vector<string> cmdline_arguments_list;
 
@@ -377,7 +377,7 @@ main (int argc, char* argv[])
     cmdline_arguments_list = cmdline_options.getArgumentsList("--saveas-path");
     if (cmdline_arguments_list.empty()) {
 #ifdef CYGWIN
-        const char* p_home = "C:\\";
+        const char* p_home = "C:\\Downloads\\";
 #else
         const char* p_home = getenv("HOME");
 #endif
