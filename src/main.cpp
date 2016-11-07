@@ -341,7 +341,7 @@ main (int argc, char* argv[])
     // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
     // --timeout-download-picture
-    unsigned timeout_download_pic = 16; // default timeout seconds
+    unsigned timeout_download_pic = 4; // default timeout seconds
     cmdline_arguments_list = cmdline_options.getArgumentsList("--timeout-download-picture");
     if (!cmdline_arguments_list.empty()) {
         unsigned tmp = strtoul(cmdline_arguments_list[0].c_str(), nullptr, 0);
