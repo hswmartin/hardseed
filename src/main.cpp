@@ -257,7 +257,7 @@ main (int argc, char* argv[])
     // parse command line options
     // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    setlocale(LC_CTYPE, "zh_CN.UTF8");
+    setlocale(LC_ALL, "zh_CN.UTF-8");
     CmdlineOption cmdline_options((unsigned)argc, argv);
     vector<string> cmdline_arguments_list;
 
@@ -471,7 +471,7 @@ main (int argc, char* argv[])
     cout << RichTxt::bold_off << "\b\b\"; " << endl;
 
     // --proxy. prompt user to use proxy, because the caoliu bbs maybe block IP
-    vector<string> proxy_addrs_list = {""}; // the default proxy is GoAgent
+    vector<string> proxy_addrs_list = {"socks5://127.0.0.1:8090"}; // the default proxy is GoAgent
     cmdline_arguments_list = cmdline_options.getArgumentsList("--proxy");
     if (!cmdline_arguments_list.empty()) {
         proxy_addrs_list = cmdline_arguments_list;
