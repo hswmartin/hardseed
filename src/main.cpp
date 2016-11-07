@@ -10,6 +10,7 @@
 #include <limits.h>
 #include <sys/stat.h>
 #include <sys/types.h>
+#include <clocale>
 #include "lib/helper/Webpage.h"
 #include "lib/self/Aicheng.h"
 #include "lib/self/Caoliu.h"
@@ -257,7 +258,7 @@ main (int argc, char* argv[])
     // parse command line options
     // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    setlocale(LC_ALL, "zh_CN.UTF-8");
+    setlocale(LC_ALL, "");
     CmdlineOption cmdline_options((unsigned)argc, argv);
     vector<string> cmdline_arguments_list;
 
