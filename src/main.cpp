@@ -37,7 +37,7 @@ showSexyGirl (void)
 {
     cout    << endl << 
             ".================================================================." << endl << 
-          //"||                        *hardseed* vx.y.z                     ||" << endl << 
+            "||                        hswmartin修改版                       ||" << endl << 
             "||                        " << g_softname << " v" << g_version << "                      ||" << endl << 
             "|'--------------------------------------------------------------'|" << endl << 
             "||       -- SEX IS ZERO (0), so, who wanna be the ONE (1), aha? ||" << endl << 
