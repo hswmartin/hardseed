@@ -10,7 +10,7 @@
 #include <limits.h>
 #include <sys/stat.h>
 #include <sys/types.h>
-#include <clocale>
+#include <clocale> 
 #include "lib/helper/Webpage.h"
 #include "lib/self/Aicheng.h"
 #include "lib/self/Caoliu.h"
@@ -26,7 +26,7 @@ using namespace json11;
 
 
 static const string g_softname(RichTxt::bold_on + "hardseed" + RichTxt::bold_off);
-static const string g_version("0.2.14");
+static const string g_version("0.2.20");
 static const string g_myemail("yangyangwithgnu@yeah.net");
 static const string g_myemail_color(RichTxt::bold_on + RichTxt::foreground_green + g_myemail + RichTxt::reset_all);
 static const string g_mywebspace("http://yangyangwithgnu.github.io/");
@@ -289,7 +289,7 @@ main (int argc, char* argv[])
     // --av-class 
     // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     cout << "Your command arguments: " << endl;
-    string av_class_name("aicheng_asia_mosaicked");
+    string av_class_name("caoliu_asia_non_mosaicked_reposted");
     cmdline_arguments_list = cmdline_options.getArgumentsList("--av-class");
     if (!cmdline_arguments_list.empty()) {
         av_class_name = cmdline_arguments_list[0];
@@ -357,7 +357,7 @@ main (int argc, char* argv[])
     // --topics-range 2 16,
     // --topics-range 8 (I.E., --topics-range 1 8),
     // --topics-range 4 -1 (I.E., all topics of this class av)
-    unsigned topics_range_begin = 1, topics_range_end = 64; // default range
+    unsigned topics_range_begin = 1, topics_range_end = 128; // default range
     cmdline_arguments_list = cmdline_options.getArgumentsList("--topics-range");
     if (!cmdline_arguments_list.empty()) {
         if (!parseTopicsRangeArgument(cmdline_arguments_list, topics_range_begin, topics_range_end)) {
@@ -378,10 +378,13 @@ main (int argc, char* argv[])
     cmdline_arguments_list = cmdline_options.getArgumentsList("--saveas-path");
     if (cmdline_arguments_list.empty()) {
 #ifdef CYGWIN
-        const char* p_home = "C:\\Downloads\\";
+        const char* p_home = "C:\\Downloads";
 #else
         const char* p_home = getenv("HOME");
 #endif
+     if (access(p_home,0)!=0){
+        mkdir(p_home,0755);
+     }
         if (nullptr == p_home) {
             cerr << "ERROR! --saveas-path argument setting wrong! " << endl;
             return(EXIT_FAILURE);
@@ -408,9 +411,8 @@ main (int argc, char* argv[])
     // windows path style
     replace(path.begin(), path.end(), '/', '\\');
 #endif
-
     // create dir
-    if (-1 == mkdir(path.c_str(), 0755)) {
+    if (-1 == mkdir(path.c_str(),0755)) {
         cerr << "ERROR! cannot create " << path << ", " << strerror(errno) << endl;
         return(EXIT_FAILURE);
     }
